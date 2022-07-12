@@ -9,16 +9,17 @@
 	<body>
 		<h1>ROBOT COMBAT!!!!</h1>
 
-		<form onsubmit="alert()">
+		<form onsubmit="nameFunctions()">
 			<label for="Robot name">Name your robot</label>
 			<input type="text" name="robotName" id="robotName" onfocus="this.value=''" required minlength="3" maxlength="8" size="10" />
-			<button type="submit" id="robotNameSubmitBtn" onclick="displayRobotName()">submit</button>
+			<button type="submit" id="robotNameSubmitBtn">submit</button>
 			<p id="displayRobotName"></p>
 		</form>
 
-		<!-- <div id="fightStage">
-			<p>fightStage id div</p>
-		</div> -->
+		<div style="visibility: hidden" id="fightStage">
+			<p>tada</p>
+		</div>
+
 		<!-- SCRIPT -->
 		<script src="./assets/js/game.js"></script>
 	</body>

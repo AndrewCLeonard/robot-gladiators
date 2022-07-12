@@ -1,12 +1,17 @@
-# robot-gladiatiors
+# robot-gladiatiors JS Project, Bootcamp Module 3
 
-JS Project, Bootcamp Module 3
+## Questions
 
-# Lesson 3
+-   `event.preventDefault` is deprecated?
+    -   [MDN says deprecated](https://developer.mozilla.org/en-US/docs/Web/API/Window/event)
+    -   [use `Event` interface?](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+-   How to arrange functions so the proper scope receives values from the input fields?
 
-## Roadmap
+## Lesson 3
 
-### Skills
+### Roadmap
+
+#### Skills
 
 -   Create variables containing different data types used to create a password
 -   Write conditional statements to add in password criteria that the user has selected
@@ -23,7 +28,7 @@ By completing this module, you’ll learn how to:
 -   Explain and implement the difference between function declarations and expressions
 -   Explain and implement comparison and logical operators
 
-## 3.1.1 Intro
+### 3.1.1 Intro
 
 -   The game must be created by a single developer in 24 hours.
 -   The game must run in a web browser.
@@ -33,6 +38,6 @@ By completing this module, you’ll learn how to:
 -   All game code must be contained in the game.js JavaScript file.
 -   Extra points will be given for high-quality code
 
-## 3.1.3 GitHub Project Setup
+### 3.1.3 GitHub Project Setup
 
 <input type="checkbox"> create GitHub issues
