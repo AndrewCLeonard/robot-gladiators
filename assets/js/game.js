@@ -1,13 +1,21 @@
-console.log(`line 1 robotName.value = ${robotName.value}`);
+// DOM Elements
+const fightStage = document.getElementById("fightStage");
 
-const robotNameInput = document.getElementById("robotNameSubmit");
+// Bindings
+const robotNameValue = document.getElementById("robotName").value;
+
 function displayRobotName() {
-	document.getElementById("displayRobotName").innerHTML = `You've named it ${robotName.value}`;
+	const displayRobotNameEventValue = document.getElementById("robotName").value;
+	fightStage.style.visibility = "visible";
 }
 
-if (robotName.value === "") {
-	console.log("robotName.value = null");
-} else {
-	console.log(`line 11 robotName.value = ${robotName.value}`);
-	console.log("name assigned");
+// function showFightStage() {
+// 	displayRobotName() === "" ? (fightStage.style.visibility = "hidden") : (fightStage.style.visibility = "visible");
+// }
+
+showFightStage();
+
+function alert() {
+	alert("alert");
 }
+
