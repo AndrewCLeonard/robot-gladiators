@@ -1,45 +1,31 @@
-// DOM Elements
-
-const fightStageId = document.getElementById("fightStage");
+// creacte DOM Elements
+const para = document.createElement("p");
 
 // Bindings
 var onLoadRobotNameValue = document.getElementById("robotName").value;
+const fightStageId = document.getElementById("fightStage");
 
 // global console.logs
 console.log(`onLoadRobotNameValue = ${onLoadRobotNameValue}`);
 console.log(`onLoadRobotNameValue is empty? ${"" === onLoadRobotNameValue}`);
 
 // functions
-function displayRobotName() {
-	fightStageId.style.visibility = "visible";
+function displayRobotReadyMsg(text) {
+
 }
 
+function RobotReadyMsg(msg, robotName, callback) {
+	// get robot's name from form
+	robotName = document.getElementById("robotName").value;
+	// message to be appended to DOM after robot name is submitted
+	msg = `It's time to battle, ${robotName}!`;
+
+}
+
+// "name your robot" form onClick event
 const nameFunctions = () => {
 	event.preventDefault();
-
-	// local vars
-	const robotNameValueOnClick = document.getElementById("robotName").value;
-
-	console.log(`robotNameValueOnClick = ${robotNameValueOnClick}`);
-	console.log(document.getElementById("robotName").innerHTML);
-
-	//
-	if (robotNameValueOnClick) {
-		// displayRobotName();
-		console.log(fightStageId);
-
-		function appendRobotName() {
-			const para = document.createElement("p");
-			const helloTextForRobotName = document.createTextNode(robotNameValueOnClick);
-
-			para.appendChild(helloTextForRobotName);
-			document.body.appendChild(para);
-		}
-		appendRobotName();
-	}
-
-	// displayRobotName();
-	// showFightStage();
+	RobotReadyMsg();
 };
 
 // Fight Variables
