@@ -1,38 +1,24 @@
-// creacte DOM Elements
-const para = document.createElement("p");
+// DOM Elements
 
 // Bindings
 var onLoadRobotNameValue = document.getElementById("robotName").value;
 const fightStageId = document.getElementById("fightStage");
 
-// global console.logs
-console.log(`onLoadRobotNameValue = ${onLoadRobotNameValue}`);
-console.log(`onLoadRobotNameValue is empty? ${"" === onLoadRobotNameValue}`);
+// Event Listeners
+const robotNameSubmitBtn = document.getElementById("robotNameSubmitBtn");
+robotNameSubmitBtn.addEventListener("click", nameYourRobotBtn);
 
-// functions
-function myClick() {
-	let captureNameSubmission = new Promise(function (myResolve, myReject) {
-		event.preventDefault;
-		nameSubmission = document.getElementById("robotName").value.trim();
-		myReject = console.log("error");
-		myResolve(nameSubmission);
-		console.log(nameSubmission);
-		return nameSubmission;
-	});
-
-	captureNameSubmission.then(
-		function (value) {
-			console.log("success");
-		},
-		function (error) {
-			console.log("error!");
-		}
-	);
+// Functions
+function nameYourRobotBtn() {
+	event.preventDefault;
+	let nameSubmission = document.getElementById("robotName").value.trim();
+	displayRobotReadyMsg();
+	RobotReadyMsg();
+	return nameSubmission;
 }
 
-function displayRobotReadyMsg(text) {
-	fightStageId.innerHTML = text;
-	console.log(text);
+function displayRobotReadyMsg() {
+	fightStageId.style.visibility = "visible";
 }
 
 function RobotReadyMsg(robotName, callback) {
@@ -40,12 +26,12 @@ function RobotReadyMsg(robotName, callback) {
 	robotName = document.getElementById("robotName").value;
 	// message to be appended to DOM after robot name is submitted
 	let msg = `It's time to battle, ${robotName}!`;
-	callback(msg);
-
-	RobotReadyMsg();
+	// create a <p> element and append it to the `id=fightStage` <div> element
+	const para = document.createElement("p");
+	const node = document.createTextNode(msg);
+	para.appendChild(node);
+	fightStageId.appendChild(para);
 }
-
-function useThisOne(robotName, callback) {}
 
 // "name your robot" form onClick event
 const nameFunctions = () => {
