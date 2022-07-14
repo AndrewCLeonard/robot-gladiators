@@ -10,17 +10,42 @@ console.log(`onLoadRobotNameValue = ${onLoadRobotNameValue}`);
 console.log(`onLoadRobotNameValue is empty? ${"" === onLoadRobotNameValue}`);
 
 // functions
-function displayRobotReadyMsg(text) {
+function myClick() {
+	let captureNameSubmission = new Promise(function (myResolve, myReject) {
+		event.preventDefault;
+		nameSubmission = document.getElementById("robotName").value.trim();
+		myReject = console.log("error");
+		myResolve(nameSubmission);
+		console.log(nameSubmission);
+		return nameSubmission;
+	});
 
+	captureNameSubmission.then(
+		function (value) {
+			console.log("success");
+		},
+		function (error) {
+			console.log("error!");
+		}
+	);
 }
 
-function RobotReadyMsg(msg, robotName, callback) {
+function displayRobotReadyMsg(text) {
+	fightStageId.innerHTML = text;
+	console.log(text);
+}
+
+function RobotReadyMsg(robotName, callback) {
 	// get robot's name from form
 	robotName = document.getElementById("robotName").value;
 	// message to be appended to DOM after robot name is submitted
-	msg = `It's time to battle, ${robotName}!`;
+	let msg = `It's time to battle, ${robotName}!`;
+	callback(msg);
 
+	RobotReadyMsg();
 }
+
+function useThisOne(robotName, callback) {}
 
 // "name your robot" form onClick event
 const nameFunctions = () => {
