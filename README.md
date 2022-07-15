@@ -2,10 +2,29 @@
 
 ## Questions
 
--   `event.preventDefault` is deprecated?
-    -   [MDN says deprecated](https://developer.mozilla.org/en-US/docs/Web/API/Window/event)
-    -   [use `Event` interface?](https://developer.mozilla.org/en-US/docs/Web/API/Event)
--   How to arrange functions so the proper scope receives values from the input fields?
+## Iterations
+
+IMPROVEMENTS
+
+MVP = click on ATTACK button, return random win/loss result
+
+Iteration #2:
+
+start by hardcoding the player wins and the computer loses, don't worry about the random numbers at first
+
+-   track if game is active or not
+    -   how will "restart game" do the restart?
+    -   keep win/loss record on future iteration
+-   eventListener for "attack" button
+
+    -   randomly subtract health from the enemy
+    -   randomly subtract health from the player
+    -   track health of characters
+    -   display message about how much damage was done
+
+-   check if health >= 0
+-   if it is, continue fighting
+-   if not, declare the winner
 
 ## Lesson 3
 

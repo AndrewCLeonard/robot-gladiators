@@ -16,9 +16,13 @@
 			<p id="displayRobotName"></p>
 		</form>
 
-		<div style="visibility: hidden" id="fightStage">
-			<h2>Robot Ready!</h2>
+		<div id="fightStage" style="visibility: hidden">
+			<h2 id="readyAnnouncement"></h2>
+			<button id="attackBtn">ATTACK</button>
+			<p id="result" style="visibility: hidden">result</p>
 		</div>
+
+		<div id="battle" style="visibility: hidden"></div>
 
 		<!-- SCRIPT -->
 		<script src="./assets/js/game.js"></script>

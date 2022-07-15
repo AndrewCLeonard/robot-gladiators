@@ -1,43 +1,51 @@
 // DOM Elements
+const para = document.createElement("p");
 
-// Bindings
-var onLoadRobotNameValue = document.getElementById("robotName").value;
+// BINDINGS
 const fightStageId = document.getElementById("fightStage");
+const readyAnnouncementId = document.getElementById("readyAnnouncement");
+let nameSubmission = "";
 
-// Event Listeners
+// EVENT LISTENERS START
+//
 const robotNameSubmitBtn = document.getElementById("robotNameSubmitBtn");
-robotNameSubmitBtn.addEventListener("click", nameYourRobotBtn);
+robotNameSubmitBtn.addEventListener(
+	"click",
 
-// Functions
-function nameYourRobotBtn() {
-	event.preventDefault;
-	let nameSubmission = document.getElementById("robotName").value.trim();
-	displayRobotReadyMsg();
-	RobotReadyMsg();
-	return nameSubmission;
-}
+	// Functions
+	function startGame(e) {
+		e.preventDefault;
+		nameSubmission = document.getElementById("robotName").value.trim(); // robotName = submission
+		displayRobotReadyMsg(); // `style.visibility = "visible"` of...
+		RobotReadyMsg(); // Battle message & attack button
+	}
+);
+
+const attackBtn = document.getElementById("attackBtn");
+attackBtn.addEventListener(
+	"click",
+
+	function chooseWinner(e) {
+		e.preventDefault;
+		booleanWinner = Math.random() > 0.5 ? winMessage : loseMessage;
+	}
+);
+
+// EVENT LISTENERS END
 
 function displayRobotReadyMsg() {
 	fightStageId.style.visibility = "visible";
 }
 
-function RobotReadyMsg(robotName, callback) {
+function RobotReadyMsg() {
 	// get robot's name from form
-	robotName = document.getElementById("robotName").value;
 	// message to be appended to DOM after robot name is submitted
-	let msg = `It's time to battle, ${robotName}!`;
+	let msg = `It's time to battle, ${nameSubmission}!`;
 	// create a <p> element and append it to the `id=fightStage` <div> element
-	const para = document.createElement("p");
 	const node = document.createTextNode(msg);
 	para.appendChild(node);
-	fightStageId.appendChild(para);
+	readyAnnouncementId.appendChild(para);
 }
-
-// "name your robot" form onClick event
-const nameFunctions = () => {
-	event.preventDefault();
-	RobotReadyMsg();
-};
 
 // Fight Variables
 playerCurrency = 10;
