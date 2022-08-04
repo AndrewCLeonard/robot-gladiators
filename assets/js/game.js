@@ -1,13 +1,8 @@
-// DOM Elements
-const para = document.createElement("p");
+const paragraphEl = document.createElement("p");
 
-// BINDINGS
-const fightStageId = document.getElementById("fightStage");
-const readyAnnouncementId = document.getElementById("readyAnnouncement");
+// will contain robot name when "submit" is clicked
 let nameSubmission = "";
 
-// EVENT LISTENERS START
-//
 const robotNameSubmitBtn = document.getElementById("robotNameSubmitBtn");
 robotNameSubmitBtn.addEventListener(
 	"click",
@@ -21,31 +16,27 @@ robotNameSubmitBtn.addEventListener(
 	}
 );
 
-const attackBtn = document.getElementById("attackBtn");
-attackBtn.addEventListener(
-	"click",
-
-	function chooseWinner(e) {
-		e.preventDefault;
-		booleanWinner = Math.random() > 0.5 ? winMessage : loseMessage;
-	}
-);
-
-// EVENT LISTENERS END
-
 function displayRobotReadyMsg() {
+	const fightStageId = document.getElementById("fightStage");
 	fightStageId.style.visibility = "visible";
 }
 
 function RobotReadyMsg() {
-	// get robot's name from form
-	// message to be appended to DOM after robot name is submitted
+	// get robot's name from form & create message to be appended to DOM after robot name is submitted
 	let msg = `It's time to battle, ${nameSubmission}!`;
 	// create a <p> element and append it to the `id=fightStage` <div> element
-	const node = document.createTextNode(msg);
-	para.appendChild(node);
-	readyAnnouncementId.appendChild(para);
+	const battleMessage = document.createTextNode(msg);
+	paragraphEl.appendChild(battleMessage);
+
+	const readyAnnouncementId = document.getElementById("readyAnnouncement");
+	readyAnnouncementId.appendChild(paragraphEl);
 }
+
+const attackBtn = document.getElementById("attackBtn");
+attackBtn.addEventListener("click", function chooseWinner(e) {
+	e.preventDefault;
+	booleanWinner = Math.random() > 0.5 ? winMessage : loseMessage;
+});
 
 // Fight Variables
 playerCurrency = 10;
