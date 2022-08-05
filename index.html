@@ -7,7 +7,7 @@
 		<title>Robot Gladiators</title>
 	</head>
 	<body>
-		<h1>ROBOT BATTLE!!!!</h1>
+		<h1>ROBOT BATTLE!</h1>
 
 		<form>
 			<label for="Robot name">Name your robot</label>
@@ -16,13 +16,13 @@
 			<p id="displayRobotName"></p>
 		</form>
 
+		<!-- made visible on submit of "Name your robot" -->
 		<div id="fightStage" style="visibility: hidden">
 			<h2 id="readyAnnouncement"></h2>
 			<button id="attackBtn">ATTACK</button>
-			<p id="result" style="visibility: hidden">result</p>
 		</div>
 
-		<div id="battle" style="visibility: hidden"></div>
+		<div id="battleResult" style="visibility: hidden"></div>
 
 		<!-- SCRIPT -->
 		<script src="./assets/js/game.js"></script>
