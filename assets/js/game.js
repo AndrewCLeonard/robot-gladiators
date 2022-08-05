@@ -1,19 +1,27 @@
 const h2El = document.createElement("h2");
 
-// will contain robot name when "submit" is clicked
+// value from robot name form
 let nameSubmission = "";
+
+// win/loss message to be displayed, chosen randomly by `chooseWinner` function
 let booleanWinner = "";
 
+// container for win/loss messages
+const battleResultId = document.getElementById("battleResult");
+
+// Robot name event listener
 const robotNameSubmitBtn = document.getElementById("robotNameSubmitBtn");
 robotNameSubmitBtn.addEventListener(
 	"click",
 
-	// Functions
-	function startGame(e) {
+	function gameStartEvents(e) {
 		e.preventDefault;
-		nameSubmission = document.getElementById("robotName").value.trim(); // robotName = submission
-		displayRobotReadyMsg(); // make `style.visibility = "visible"` for `RobotReadyMsg()`
-		RobotReadyMsg(); // Battle message & attack button
+		// update robot name with value from text box
+		nameSubmission = document.getElementById("robotName").value.trim();
+		// make `style.visibility = "visible"` for `RobotReadyMsg()`, which contains the announcement and "attack" button
+		displayRobotReadyMsg();
+		// create battle message
+		createRobotReadyMsg();
 	}
 );
 
@@ -22,15 +30,24 @@ function displayRobotReadyMsg() {
 	fightStageId.style.visibility = "visible";
 }
 
-function RobotReadyMsg() {
-	// create battle message
-	let msg = `It's time to battle, ${nameSubmission}!`;
+function createRobotReadyMsg() {
+	// create battle message text
+	let battleMessage = `It's time to battle, ${nameSubmission}!`;
 	// put the message in a text node
-	const battleMessage = document.createTextNode(msg);
-	// append it to id='readyAnnouncement'
-	const readyAnnouncementId = document.getElementById("readyAnnouncement");
-	readyAnnouncementId.appendChild(battleMessage);
-	// return nameSubmission;
+	// append it to id="readyAnnouncement"
+	let readyAnnouncementId = document.getElementById("readyAnnouncement");
+	console.log(battleResultId);
+	// clear readyAnnouncementId if it currently has any textContent
+	if (readyAnnouncementId.textContent) {
+		readyAnnouncementId.textContent = battleMessage;
+	} else {
+		readyAnnouncementId.textContent = battleMessage;
+	}
+
+	// clear win/loss messages if there's anything in those
+	if (battleResultId.textContent) {
+		battleResultId.textContent = "";
+	}
 }
 
 // attack function logic
@@ -50,7 +67,6 @@ attackBtn.addEventListener("click", chooseWinner);
 
 function displayBattleResult() {
 	console.log(booleanWinner);
-	const battleResultId = document.getElementById("battleResult");
 	battleResultId.style.visibility = "visible";
 
 	const battleResultText = document.createTextNode(booleanWinner);
