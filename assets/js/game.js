@@ -10,7 +10,21 @@ let booleanWinner = "";
 const battleResultId = document.getElementById("battleResult");
 
 // Robot name event listener
+
+// button for robot name
 const robotNameSubmitBtn = document.getElementById("robotNameSubmitBtn");
+
+// input for robot name
+const robotNameInput = document.getElementById("robotName");
+
+// trigger button click when enter key pressed
+robotNameInput.addEventListener("keypress", function (e) {
+	if (e.key === "Enter") {
+		e.preventDefault();
+		robotNameSubmitBtn.click();
+	}
+});
+
 robotNameSubmitBtn.addEventListener(
 	"click",
 
